@@ -1,0 +1,47 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "M47wk7day1",
+    "dateExported": "2023-05-02T16:00:42.634Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "5b2908a6-f65f-49fd-b2fe-790a2818ea63",
+            "colId": "388d8520-754c-4f72-be04-94aced8d6a3e",
+            "containerId": "",
+            "name": "First POST request",
+            "url": "http://localhost:5001/book",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-05-02T16:00:20.451Z",
+            "modified": "2023-05-02T16:00:20.451Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"Ferrol to Santiago\",\n  \"author\": \"Mark McCarthy\",\n  \"genre\": \"Travel\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "e1c0c10e-e9c5-4085-922c-ff5a5282a0e2",
+            "colId": "388d8520-754c-4f72-be04-94aced8d6a3e",
+            "containerId": "",
+            "name": "First POST request",
+            "url": "http://localhost:5001/book",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-05-02T16:00:32.077Z",
+            "modified": "2023-05-02T16:00:32.077Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"Ferrol to Santiago\",\n  \"author\": \"Mark McCarthy\",\n  \"genre\": \"Travel\"\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}

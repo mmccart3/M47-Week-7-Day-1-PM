@@ -16,13 +16,8 @@ book_id += 1;
 
 app.use(express.json());
 
-app.get("/book", (request,response) => {
-    // const book = {
-    //     title: "LOTR",
-    //     author: "Tolkein",
-    //     genre: "Fantasy"
-    // }
-    
+app.get("/book", (request, response) => {
+
     const successResponse = {
         message: "Books succesfully retrieved",
         book: books
@@ -31,8 +26,7 @@ app.get("/book", (request,response) => {
     response.send(successResponse)
 })
 
-app.post("/book",(request,response) => {
-    // console.log(request.body);
+app.post("/book", (request, response) => {
 
     const newBook = {
         id: book_id,
@@ -52,15 +46,60 @@ app.post("/book",(request,response) => {
     response.send(successResponse)
 })
 
-app.put("/book", (request,response => {
+app.put("/book", (request, response ) => {
     function findBook(x) {
         return x.title === request.body.title;
-      }
-      const index = books.findIndex(findBook);
-}))
+    }
+    const index = books.findIndex(findBook);
 
-app.delete("/book", (request,response =>{
+    if (index!==-1) {
+        if (request.body.author) {
+            books[index].author = request.body.author;
+        }
+        if (request.body.genre) {
+            books[index].genre = request.body.genre;
+        }
+        const successResponse = {
+            message: "Book succesfully updated"
+        }
+    
+        response.send(successResponse)
+    } else {
+        const failureResponse = {
+            message: "Book not found",
+            book: request.body.title
+        }
+            response.status(404).send(failureResponse)
+    }
 
-}))
+
+})
+
+app.delete("/book", (request, response) => {
+    function findBook(x) {
+        return x.title === request.body.title;
+    }
+    const index = books.findIndex(findBook);
+
+    books.splice(index,1);
+
+    if (index !== -1) {
+        const successResponse = {
+            message: "Book succesfully deleted",
+            book: request.body.title
+        }
+    
+        response.send(successResponse)
+    }
+    else {
+        const failureResponse = {
+            message: "Book not found",
+            book: request.body.title
+        }
+            response.status(404).send(failureResponse)
+    }
+
+
+})
 
 app.listen(5001, () => console.log("server is listening on port 5001"))
